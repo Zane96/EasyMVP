@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+
+
+//
+//ext {
+//    bintrayRepo = 'maven'////bintray上的仓库名，一般为maven
+//    bintrayName = 'ex-utils'//bintray上的项目名
+//
+//    publishedGroupId = 'com.kermit'//JCenter的GroupId
+//    artifact = 'exutils'//JCenter的ArtifactId,但是还是以包名为准
+//
+//    siteUrl = 'https://github.com/Kermit95/ExUtils'
+//    gitUrl = 'https://github.com/Kermit95/ExUtils'
+//
+//    libraryVersion = '1.0.7'//版本号
+//
+//    libraryName = 'ex-utils'//项目名字，没什么用
+//    libraryDescription = 'some android tools'//项目描述，没什么用
+//
+//    //开发者信息
+//    developerId = 'Kermit95'
+//    developerName = 'Kermit95'
+//    developerEmail = 'kermitwang95@gmail.com'
+//
+//    //以上所有信息自行修改，以下不变
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
+//apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/install.gradle'
+//apply from:'https://raw.githubusercontent.com/Jude95/JCenter/master/bintray.gradle'
+
+
+
+
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+}
