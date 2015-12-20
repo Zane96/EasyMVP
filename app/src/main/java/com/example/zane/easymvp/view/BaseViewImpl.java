@@ -1,5 +1,6 @@
 package com.example.zane.easymvp.view;
 
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 public abstract class BaseViewImpl implements IView{
 
     protected View view;
+    protected final SparseArray<View> mViews = new SparseArray<View>();
 
     @Override
     public void creatView(LayoutInflater inflater, ViewGroup parent) {
@@ -26,6 +28,19 @@ public abstract class BaseViewImpl implements IView{
     @Override
     public View getRootView() {
         return view;
+    }
+
+    public <T extends View> T bindView(int id) {
+        T view = (T) mViews.get(id);
+        if (view == null) {
+            view = (T) view.findViewById(id);
+            mViews.put(id, view);
+        }
+        return view;
+    }
+
+    public <T extends View> T get(int id) {
+        return (T) bindView(id);
     }
 
     @Override

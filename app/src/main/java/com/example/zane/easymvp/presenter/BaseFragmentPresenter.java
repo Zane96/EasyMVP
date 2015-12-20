@@ -28,6 +28,7 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
             e.printStackTrace();
         }
         v.creatView(inflater, container);
+        v.initView();
         inCreatView();
 
         return v.getRootView();

@@ -17,6 +17,10 @@ public abstract class BaseListAdapterPresenter<M extends Object> extends Recycle
     protected Context mContext;
     protected List<M> mDatas;
 
+    public BaseListAdapterPresenter(Context mContext){
+        this(mContext, null);
+    }
+
     public BaseListAdapterPresenter(Context mContext, List<M> mDatas){
         this.mContext = mContext;
         this.mDatas = mDatas;
@@ -30,10 +34,6 @@ public abstract class BaseListAdapterPresenter<M extends Object> extends Recycle
 
     public abstract BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType);
 
-    @Override
-    public void onBindViewHolder(BaseListViewHolderImpl holder, int position, List<Object> payloads) {
-        holder.setData(getItem(position));
-    }
 
     public M getItem(int position){
         return mDatas.get(position);

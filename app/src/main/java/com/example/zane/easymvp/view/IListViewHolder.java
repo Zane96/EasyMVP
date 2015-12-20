@@ -8,7 +8,4 @@ public interface IListViewHolder {
 
     void initView();
 
-    int getRootViewId();
-
-
 }

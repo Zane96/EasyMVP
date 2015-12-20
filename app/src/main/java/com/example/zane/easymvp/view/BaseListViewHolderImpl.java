@@ -1,5 +1,6 @@
 package com.example.zane.easymvp.view;
 
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.view.ViewGroup;
  * Created by Zane on 15/12/18.
  * 这个中间的base层用来做到viewholder与adapter的解耦。
  */
-public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerView.ViewHolder implements IListViewHolder{
+public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerView.ViewHolder{
 
     public BaseListViewHolderImpl(View itemView) {
         super(itemView);
@@ -21,19 +22,16 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
         super(LayoutInflater.from(parent.getContext()).inflate(res, parent, false));
     }
 
-    @Override
-    public void initView() {
-
-    }
+    public abstract void initView();
 
 
     public void setData(M data){
 
     }
 
-    @Override
-    public int getRootViewId() {
-        return 0;
+
+    protected <T extends View> T $(@IdRes int id) {
+        return (T) itemView.findViewById(id);
     }
 
 }

@@ -23,6 +23,7 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
             e.printStackTrace();
         }
         v.creatView(getLayoutInflater(), null);
+        v.initView();
         setContentView(v.getRootView());
 
         inCreat();
