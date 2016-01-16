@@ -17,4 +17,6 @@ public interface IView {
     int getRootViewId();
 
     void initView();
+
+    void initViewByButterKinef();
 }

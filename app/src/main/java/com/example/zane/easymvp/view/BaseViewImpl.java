@@ -15,7 +15,7 @@ public abstract class BaseViewImpl implements IView{
     protected final SparseArray<View> mViews = new SparseArray<View>();
 
     @Override
-    public void creatView(LayoutInflater inflater, ViewGroup parent) {
+    final public void creatView(LayoutInflater inflater, ViewGroup parent) {
         int resourceId = getRootViewId();
 
         if (resourceId == 0){
@@ -26,11 +26,11 @@ public abstract class BaseViewImpl implements IView{
     }
 
     @Override
-    public View getRootView() {
+    final public View getRootView() {
         return view;
     }
 
-    public <T extends View> T bindView(int id) {
+    final public <T extends View> T bindView(int id) {
         T view = (T) mViews.get(id);
         if (view == null) {
             view = (T) view.findViewById(id);
@@ -39,7 +39,7 @@ public abstract class BaseViewImpl implements IView{
         return view;
     }
 
-    public <T extends View> T get(int id) {
+    final public <T extends View> T get(int id) {
         return (T) bindView(id);
     }
 
@@ -51,5 +51,11 @@ public abstract class BaseViewImpl implements IView{
     @Override
     public void initView() {
 
+    }
+
+    // TODO: 16/1/15  直接用butterkinef绑定view，然后用户直接根据id来导入。 
+    @Override
+    public void initViewByButterKinef() {
+        
     }
 }
