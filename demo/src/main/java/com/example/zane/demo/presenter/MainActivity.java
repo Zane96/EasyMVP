@@ -30,8 +30,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         }
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
-        v.mRecycleview.setAdapter(adapter);
-        v.mRecycleview.setLayoutManager(linearLayoutManager);
+        v.initRecycleview(linearLayoutManager, adapter);
     }
 
     @Override

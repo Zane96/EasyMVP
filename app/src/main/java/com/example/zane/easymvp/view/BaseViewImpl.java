@@ -1,9 +1,14 @@
 package com.example.zane.easymvp.view;
 
+import android.app.Activity;
+import android.content.Context;
+import android.support.annotation.IdRes;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by Zane on 15/12/18.
@@ -53,9 +58,7 @@ public abstract class BaseViewImpl implements IView{
 
     }
 
-    // TODO: 16/1/15  直接用butterkinef绑定view，然后用户直接根据id来导入。 
-    @Override
-    public void initViewByButterKinef() {
-        
+    protected <T extends View> T $(@IdRes int id) {
+        return (T) view.findViewById(id);
     }
 }

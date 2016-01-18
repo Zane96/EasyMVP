@@ -1,11 +1,9 @@
 package com.example.zane.demo.view;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.zane.demo.R;
+import com.example.zane.demo.presenter.MyRecycleviewAdapter;
 import com.example.zane.easymvp.view.BaseViewImpl;
 
 /**
@@ -22,7 +20,12 @@ public class MainListView extends BaseViewImpl{
 
     @Override
     public void initView() {
-        mRecycleview = (RecyclerView)getRootView().findViewById(R.id.recycleview);
+        mRecycleview = $(R.id.recycleview);
+    }
+
+    public void initRecycleview(LinearLayoutManager manager, MyRecycleviewAdapter adapter){
+        mRecycleview.setAdapter(adapter);
+        mRecycleview.setLayoutManager(manager);
     }
 
 }

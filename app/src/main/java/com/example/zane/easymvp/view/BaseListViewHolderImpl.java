@@ -1,5 +1,7 @@
 package com.example.zane.easymvp.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
@@ -25,13 +27,13 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
     public abstract void initView();
 
 
-    public void setData(M data){
-
-    }
+    public abstract void setData(M data);
 
 
     protected <T extends View> T $(@IdRes int id) {
         return (T) itemView.findViewById(id);
     }
+
+
 
 }
