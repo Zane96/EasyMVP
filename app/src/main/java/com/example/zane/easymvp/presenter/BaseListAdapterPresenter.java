@@ -3,9 +3,7 @@ package com.example.zane.easymvp.presenter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
-
 import java.util.List;
 
 
