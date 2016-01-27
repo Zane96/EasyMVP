@@ -20,4 +20,5 @@ public interface IView {
 
     void initView();
 
+    void removeView();
 }

@@ -63,4 +63,18 @@ public abstract class BaseViewImpl implements IView{
     final protected <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
+
+    @Override
+    final public void removeView() {
+        ButterKnife.unbind(this);
+    }
+
+    final public void setOnClickListener(View.OnClickListener listener, int... ids) {
+        if (ids == null) {
+            return;
+        }
+        for (int id : ids) {
+            get(id).setOnClickListener(listener);
+        }
+    }
 }

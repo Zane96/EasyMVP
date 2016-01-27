@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Zane on 15/12/18.
  * 这个中间的base层用来做到viewholder与adapter的解耦。

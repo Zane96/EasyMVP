@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.zane.easymvp.view.IView;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Zane on 15/12/18.
@@ -34,6 +36,7 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        v.removeView();
         v = null;
         inDestory();
     }
