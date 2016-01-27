@@ -37,12 +37,12 @@ public abstract class BaseViewImpl implements IView{
     }
 
     final public <T extends View> T bindView(int id) {
-        T view = (T) mViews.get(id);
-        if (view == null) {
-            view = (T) view.findViewById(id);
-            mViews.put(id, view);
+        T view2 = (T) mViews.get(id);
+        if (view2 == null) {
+            view2 = (T) view.findViewById(id);
+            mViews.put(id, view2);
         }
-        return view;
+        return view2;
     }
 
     final public <T extends View> T get(int id) {
@@ -50,9 +50,7 @@ public abstract class BaseViewImpl implements IView{
     }
 
     @Override
-    public int getRootViewId() {
-        return 0;
-    }
+    public abstract int getRootViewId();
 
     //添加注解view方式
     @Override

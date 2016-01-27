@@ -28,6 +28,7 @@ public abstract class BaseListAdapterPresenter<M extends Object> extends Recycle
     public BaseListViewHolderImpl onCreateViewHolder(ViewGroup parent, int viewType) {
 
         return OnCreatViewHolder(parent, viewType);
+
     }
 
     public abstract BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType);

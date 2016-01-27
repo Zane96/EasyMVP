@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
-        ButterKnife.bind(this);
+
     }
 
     @Override

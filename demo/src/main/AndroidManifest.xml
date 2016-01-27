@@ -9,13 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presenter.MainActivity">
+        <activity android:name=".presenter.MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".presenter.MainActivity"/>
 
     </application>
 

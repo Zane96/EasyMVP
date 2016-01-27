@@ -24,10 +24,6 @@ public class MainListView extends BaseViewImpl {
         return R.layout.activity_main;
     }
 
-    @Override
-    public void initView() {
-        super.initView();
-    }
 
     public void initRecycleview(LinearLayoutManager manager, MyRecycleviewAdapter adapter) {
         mRecycleview.setAdapter(adapter);
