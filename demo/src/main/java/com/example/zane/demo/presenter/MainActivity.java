@@ -12,6 +12,8 @@ import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     public LinearLayoutManager linearLayoutManager;
@@ -31,6 +33,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
+        ButterKnife.bind(this);
     }
 
     @Override

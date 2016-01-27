@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.zane.easymvp.view.IView;
 
+
 /**
  * Created by Zane on 15/12/18.
  */

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Zane on 15/12/18.
@@ -52,12 +54,13 @@ public abstract class BaseViewImpl implements IView{
         return 0;
     }
 
+    //添加注解view方式
     @Override
-    public void initView() {
-
+    final public void initView() {
+        ButterKnife.bind(this, view);
     }
 
-    protected <T extends View> T $(@IdRes int id) {
+    final protected <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 }
