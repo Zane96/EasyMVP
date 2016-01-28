@@ -17,8 +17,6 @@ public class MainListView extends BaseViewImpl {
     @Bind(R.id.recycleview)
     RecyclerView mRecycleview;
 
-//    public RecyclerView mRecycleview;
-
     @Override
     public int getRootViewId() {
         return R.layout.activity_main;

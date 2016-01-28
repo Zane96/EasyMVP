@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
+
 import butterknife.ButterKnife;
 
 
@@ -39,7 +41,7 @@ public abstract class BaseViewImpl implements IView{
     final public <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);
         if (view2 == null) {
-            view2 = (T) view.findViewById(id);
+            view2 = $(id);
             mViews.put(id, view2);
         }
         return view2;

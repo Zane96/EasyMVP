@@ -11,6 +11,7 @@
         android:textSize="24sp"
         android:layout_marginLeft="20dp"
         android:id="@+id/item_text"
+        android:text="ss"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <View

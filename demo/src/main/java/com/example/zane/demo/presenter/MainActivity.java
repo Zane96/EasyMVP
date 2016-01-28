@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     }
 
     @Override
-    public void inCreat() {
+    public void inCreat(Bundle bundle) {
         for (int i = 0; i <= 10; i++){
             datas.add(new data());
         }

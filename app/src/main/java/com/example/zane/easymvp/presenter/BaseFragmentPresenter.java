@@ -19,7 +19,6 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view;
         try {
             v = getRootViewClass().newInstance();
         } catch (java.lang.InstantiationException e) {
@@ -33,6 +32,23 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
 
         return v.getRootView();
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+    }
+
+
 
     @Override
     public void onDestroy() {
