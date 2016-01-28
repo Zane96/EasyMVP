@@ -28,26 +28,10 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
         }
         v.creatView(inflater, container);
         v.initView();
-        inCreatView();
+        inCreatView(savedInstanceState);
 
         return v.getRootView();
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-    }
-
 
 
     @Override
@@ -59,6 +43,6 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
 
     public abstract Class<T> getRootViewClass();
 
-    public abstract void inCreatView();
+    public abstract void inCreatView(@Nullable Bundle savedInstanceState);
     public abstract void inDestory();
 }
