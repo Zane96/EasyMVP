@@ -43,6 +43,19 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
         v.removeView();
         v = null;
     }
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (v == null) {
+            try {
+                v = getRootViewClass().newInstance();
+            } catch (java.lang.InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public abstract Class<T> getRootViewClass();
 
