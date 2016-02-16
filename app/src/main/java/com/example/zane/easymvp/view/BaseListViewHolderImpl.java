@@ -28,14 +28,10 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
 
     public abstract void initView();
 
-
     public abstract void setData(M data);
-
 
     protected <T extends View> T $(@IdRes int id) {
         return (T) itemView.findViewById(id);
     }
-
-
 
 }

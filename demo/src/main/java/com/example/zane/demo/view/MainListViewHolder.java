@@ -23,7 +23,6 @@ public class MainListViewHolder extends BaseListViewHolderImpl<data> {
         initView();
     }
 
-
     @Override
     public void initView() {
         mTextView = $(R.id.item_text);
@@ -33,6 +32,4 @@ public class MainListViewHolder extends BaseListViewHolderImpl<data> {
     public void setData(data data) {
         mTextView.setText(data.getDatas()[0]);
     }
-
-
 }

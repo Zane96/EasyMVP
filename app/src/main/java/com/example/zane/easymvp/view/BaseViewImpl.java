@@ -2,6 +2,7 @@ package com.example.zane.easymvp.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ public abstract class BaseViewImpl implements IView{
     protected final SparseArray<View> mViews = new SparseArray<View>();
 
     @Override
-    final public void creatView(LayoutInflater inflater, ViewGroup parent) {
+    final public void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
         int resourceId = getRootViewId();
 
         if (resourceId == 0){
@@ -36,6 +37,19 @@ public abstract class BaseViewImpl implements IView{
     @Override
     final public View getRootView() {
         return view;
+    }
+    @Override
+    public abstract int getRootViewId();
+
+    //添加注解view方式
+    @Override
+    final public void initView() {
+        ButterKnife.bind(this, view);
+    }
+
+    @Override
+    final public void removeView() {
+        ButterKnife.unbind(this);
     }
 
     final public <T extends View> T bindView(int id) {
@@ -51,23 +65,10 @@ public abstract class BaseViewImpl implements IView{
         return (T) bindView(id);
     }
 
-    @Override
-    public abstract int getRootViewId();
-
-    //添加注解view方式
-    @Override
-    final public void initView() {
-        ButterKnife.bind(this, view);
-    }
-
     final protected <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 
-    @Override
-    final public void removeView() {
-        ButterKnife.unbind(this);
-    }
 
     final public void setOnClickListener(View.OnClickListener listener, int... ids) {
         if (ids == null) {

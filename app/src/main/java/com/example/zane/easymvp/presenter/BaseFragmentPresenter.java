@@ -26,23 +26,24 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        v.creatView(inflater, container);
-        v.initView();
-        inCreatView(savedInstanceState);
+        v.creatView(inflater, container, savedInstanceState);
 
         return v.getRootView();
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        v.initView();
+    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        v.removeView();
         v = null;
-        inDestory();
     }
 
     public abstract Class<T> getRootViewClass();
 
-    public abstract void inCreatView(@Nullable Bundle savedInstanceState);
-    public abstract void inDestory();
 }

@@ -19,8 +19,6 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<data>{
         super(mContext, datas);
     }
 
-
-
     @Override
     public BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType) {
         return new MainListViewHolder(parent);

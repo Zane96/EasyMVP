@@ -16,8 +16,6 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivityPresenter<V extends IView> extends AppCompatActivity{
 
-    public static final String VIEW = "V";
-
     protected V v;
 
     @Override
@@ -30,31 +28,12 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        v.creatView(getLayoutInflater(), null);
+        v.creatView(getLayoutInflater(), null, savedInstanceState);
         v.initView();
         setContentView(v.getRootView());
 
         inCreat(savedInstanceState);
     }
-
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//
-//
-//
-//        super.onSaveInstanceState(outState);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//
-//        if (savedInstanceState != null){
-//            v = (V)savedInstanceState.getSerializable(VIEW);
-//        }
-//
-//        super.onRestoreInstanceState(savedInstanceState);
-//    }
-
     //接触绑定
     @Override
     protected void onDestroy() {
@@ -63,6 +42,15 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
         v = null;
         inDestory();
     }
+
+    public abstract Class<V> getRootViewClass();
+    public abstract void inCreat(Bundle savedInstanceState);
+    public abstract void inDestory();
+    public void inPause(){}
+    public void inRestart(){}
+    public void inStop(){}
+    public void inResume(){}
+    public void inStart(){}
 
     @Override
     protected void onStart() {
@@ -93,16 +81,6 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
         super.onPause();
         inPause();
     }
-
-    public abstract Class<V> getRootViewClass();
-
-    public abstract void inCreat(Bundle savedInstanceState);
-    public abstract void inDestory();
-    public void inPause(){}
-    public void inRestart(){}
-    public void inStop(){}
-    public void inResume(){}
-    public void inStart(){}
 
 
 }

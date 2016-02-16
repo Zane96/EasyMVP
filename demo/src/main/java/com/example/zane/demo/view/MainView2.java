@@ -26,5 +26,4 @@ public class MainView2 extends BaseViewImpl {
     public void setText(String test){
         edit.setText(test);
     }
-
 }
