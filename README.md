@@ -22,7 +22,7 @@ allprojects {
 **Add the dependency:**
 ```
 	  dependencies {
-	        compile 'com.github.Zane96:EasyMVP:v1.2.5'
+	        compile 'com.github.Zane96:EasyMVP:v1.2.6'
 	  }
 ```
 
