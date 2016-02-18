@@ -19,11 +19,13 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
 
     public BaseListViewHolderImpl(View itemView) {
         super(itemView);
+        initView();
     }
 
     //生成viewholder的构造方法。
     public BaseListViewHolderImpl(ViewGroup parent, @LayoutRes int res){
         super(LayoutInflater.from(parent.getContext()).inflate(res, parent, false));
+        initView();
     }
 
     public abstract void initView();

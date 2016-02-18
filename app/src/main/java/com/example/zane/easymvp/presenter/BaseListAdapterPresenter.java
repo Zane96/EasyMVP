@@ -38,8 +38,4 @@ public abstract class BaseListAdapterPresenter<M extends Object> extends Recycle
         return mDatas.get(position);
     }
 
-    @Override
-    public int getItemCount() {
-        return mDatas.size();
-    }
 }
