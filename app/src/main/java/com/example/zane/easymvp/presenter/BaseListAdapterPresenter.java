@@ -24,6 +24,7 @@ public abstract class BaseListAdapterPresenter<M extends Object> extends Recycle
         this.mDatas = mDatas;
     }
 
+
     @Override
     public BaseListViewHolderImpl onCreateViewHolder(ViewGroup parent, int viewType) {
 
