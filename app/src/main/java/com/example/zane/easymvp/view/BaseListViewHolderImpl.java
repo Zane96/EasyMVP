@@ -38,31 +38,9 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
 
     public abstract void setData(M data);
 
-    final public <T extends View> T bindView(int id) {
-        T view2 = (T) mViews.get(id);
-        if (view2 == null) {
-            view2 = $(id);
-            mViews.put(id, view2);
-        }
-        return view2;
-    }
-
-    final public <T extends View> T get(int id) {
-        return (T) bindView(id);
-    }
-
     final protected <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 
-
-    final public void setOnClickListener(View.OnClickListener listener, int... ids) {
-        if (ids == null) {
-            return;
-        }
-        for (int id : ids) {
-            get(id).setOnClickListener(listener);
-        }
-    }
 
 }
