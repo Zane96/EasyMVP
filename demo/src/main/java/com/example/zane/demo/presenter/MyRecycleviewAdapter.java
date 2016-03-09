@@ -15,8 +15,11 @@ import java.util.List;
  */
 public class MyRecycleviewAdapter extends BaseListAdapterPresenter<data>{
 
+    private List<data> datas;
+
     public MyRecycleviewAdapter(Context mContext, List<data> datas){
         super(mContext, datas);
+        this.datas = datas;
     }
 
     @Override
@@ -27,5 +30,10 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<data>{
     @Override
     public void onBindViewHolder(BaseListViewHolderImpl holder, int position) {
         holder.setData(getItem(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return datas.size();
     }
 }

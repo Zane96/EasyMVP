@@ -15,15 +15,11 @@ public class MainView2 extends BaseViewImpl {
 
     @Bind(R.id.button)
     Button button;
-    @Bind(R.id.edit)
-    EditText edit;
+
 
     @Override
     public int getRootViewId() {
         return R.layout.activity_2;
     }
 
-    public void setText(String test){
-        edit.setText(test);
-    }
 }

@@ -15,12 +15,10 @@ import butterknife.Bind;
  */
 public class MainListViewHolder extends BaseListViewHolderImpl<data> {
 
-
-    TextView mTextView;
+    private TextView mTextView;
 
     public MainListViewHolder(ViewGroup parent) {
         super(parent, R.layout.listview_item_layout);
-        initView();
     }
 
     @Override
