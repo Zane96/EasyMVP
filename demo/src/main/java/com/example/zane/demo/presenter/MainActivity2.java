@@ -1,5 +1,6 @@
 package com.example.zane.demo.presenter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,5 +34,10 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     @Override
     public void inDestory() {
 
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

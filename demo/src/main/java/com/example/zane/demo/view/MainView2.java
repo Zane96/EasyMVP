@@ -1,5 +1,6 @@
 package com.example.zane.demo.view;
 
+import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,6 +21,11 @@ public class MainView2 extends BaseViewImpl {
     @Override
     public int getRootViewId() {
         return R.layout.activity_2;
+    }
+
+    @Override
+    public void setActivityContext(Context activity) {
+
     }
 
 }

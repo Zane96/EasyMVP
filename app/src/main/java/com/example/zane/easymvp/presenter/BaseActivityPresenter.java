@@ -1,5 +1,6 @@
 package com.example.zane.easymvp.presenter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,8 +29,11 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+
         v.creatView(getLayoutInflater(), null, savedInstanceState);
         v.initView();
+        v.setActivityContext(getContext());
+
         setContentView(v.getRootView());
 
         inCreat(savedInstanceState);
@@ -46,6 +50,7 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
     public abstract Class<V> getRootViewClass();
     public abstract void inCreat(Bundle savedInstanceState);
     public abstract void inDestory();
+    public abstract Context getContext();
     public void inPause(){}
     public void inRestart(){}
     public void inStop(){}

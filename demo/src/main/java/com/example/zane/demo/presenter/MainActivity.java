@@ -1,5 +1,6 @@
 package com.example.zane.demo.presenter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,5 +40,10 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     @Override
     public void inDestory() {
 
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

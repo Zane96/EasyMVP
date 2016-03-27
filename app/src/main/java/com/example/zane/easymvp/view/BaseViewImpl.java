@@ -52,6 +52,9 @@ public abstract class BaseViewImpl implements IView{
         ButterKnife.unbind(this);
     }
 
+    @Override
+    public abstract void setActivityContext(Context activity);
+
     final public <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);
         if (view2 == null) {
