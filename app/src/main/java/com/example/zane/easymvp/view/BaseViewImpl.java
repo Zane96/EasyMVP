@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,7 @@ public abstract class BaseViewImpl implements IView{
     }
 
     @Override
-    public abstract void setActivityContext(Context activity);
+    public abstract void setActivityContext(AppCompatActivity activity);
 
     final public <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);

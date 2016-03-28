@@ -50,7 +50,7 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
     public abstract Class<V> getRootViewClass();
     public abstract void inCreat(Bundle savedInstanceState);
     public abstract void inDestory();
-    public abstract Context getContext();
+    public abstract AppCompatActivity getContext();
     public void inPause(){}
     public void inRestart(){}
     public void inStop(){}

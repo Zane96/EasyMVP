@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,6 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
     }
 
     public abstract Class<T> getRootViewClass();
-    public abstract Context getContext();
+    public abstract AppCompatActivity getContext();
 
 }
