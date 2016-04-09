@@ -24,13 +24,14 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     @Override
     public void inCreat(Bundle bundle) {
 
-//        v.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity2.this, MainActivity.class));
-//            }
-//        }, R.id.button);
-        v.ClickButton();
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, MainActivity.class));
+            }
+        }, R.id.button);
+
+        v.ClickButtonShowToast();
     }
 
     @Override

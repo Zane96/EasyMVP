@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.zane.demo.R;
 import com.example.zane.demo.presenter.MainActivity;
@@ -20,6 +20,8 @@ public class MainView2 extends BaseViewImpl {
 
     @Bind(R.id.button)
     Button button;
+    @Bind(R.id.button2)
+    Button button2;
     private Context context;
 
     @Override
@@ -32,11 +34,11 @@ public class MainView2 extends BaseViewImpl {
         context = activity;
     }
 
-    public void ClickButton(){
-        button.setOnClickListener(new View.OnClickListener() {
+    public void ClickButtonShowToast() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, MainActivity.class));
+                Toast.makeText(context, "传递context到View层中去", Toast.LENGTH_SHORT).show();
             }
         });
     }
