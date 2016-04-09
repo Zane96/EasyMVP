@@ -24,7 +24,7 @@ allprojects {
 **Add the dependency:**
 ```
 	  dependencies {
-	        compile 'com.github.Zane96:EasyMVP:v1.2.6'
+	        compile 'com.github.Zane96:EasyMVP:v1.3.0'
 	  }
 ```
 
