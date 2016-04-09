@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     }
 
     @Override
-    public Context getContext() {
+    public AppCompatActivity getContext() {
         return this;
     }
 }

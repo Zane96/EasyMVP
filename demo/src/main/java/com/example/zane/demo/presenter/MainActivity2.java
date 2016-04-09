@@ -3,6 +3,7 @@ package com.example.zane.demo.presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -23,12 +24,13 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     @Override
     public void inCreat(Bundle bundle) {
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity2.this, MainActivity.class));
-            }
-        }, R.id.button);
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity2.this, MainActivity.class));
+//            }
+//        }, R.id.button);
+        v.ClickButton();
     }
 
     @Override
@@ -37,7 +39,7 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     }
 
     @Override
-    public Context getContext() {
+    public AppCompatActivity getContext() {
         return this;
     }
 }
