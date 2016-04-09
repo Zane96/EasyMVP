@@ -45,4 +45,7 @@ allprojects {
 ```
   public class MyRecycleviewAdapter extends BaseListAdapterPresenter<Bean>
 ```
+
+###版本更新介绍:
++ v.1.3.0:强制使activity拥有提供context到view中的函数。因为有时候view的使用必须用到activity类型的context。提供的过程由框架内部完成，开发者只需要get,set就行。必须启动activity，启动Toast都可以在view中实现。
 	
