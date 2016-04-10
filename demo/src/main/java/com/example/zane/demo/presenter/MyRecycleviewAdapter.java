@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.ViewGroup;
 
+import com.example.zane.demo.Bean.Data_One;
+import com.example.zane.demo.Bean.Data_Two;
 import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.R;
 import com.example.zane.demo.view.DataOneViewHolder;
@@ -34,6 +36,7 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
         }else {
             return DATA_TWO;
         }
+
     }
 
     @Override
@@ -51,7 +54,12 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     @Override
     public void onBindViewHolder(BaseListViewHolderImpl holder, int position) {
         Log.i("MyRecycleviewAdapter", position+" "+String.valueOf(holder)+" ");
-        holder.setData(getItem(position));
+        //holder.setData(getItem(position));
+        if (position < 5){
+            holder.setData(getItem(position));
+        } else {
+            holder.setData( getItem(position));
+        }
     }
 
     @Override

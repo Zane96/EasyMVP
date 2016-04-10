@@ -32,15 +32,15 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     public void inCreat(Bundle bundle) {
 
         for (int i = 0; i < Constant.DataOne.length; i++){
-            RecycleviewData recycleviewData = new RecycleviewData();
-            recycleviewData.setData_one(new Data_One(Constant.DataOne[i]));
+            RecycleviewData recycleviewData = new Data_One(Constant.DataOne[i]);
+            recycleviewData.setData_one((Data_One) recycleviewData);
             datas.add(recycleviewData);
             Log.i(TAG, Constant.DataOne[i]);
         }
 
         for (int j = 0; j < Constant.DataTwo.length; j++){
-            RecycleviewData recycleviewData = new RecycleviewData();
-            recycleviewData.setData_two(new Data_Two(Constant.DataTwo[j]));
+            RecycleviewData recycleviewData = new Data_Two(Constant.DataTwo[j]);
+            recycleviewData.setData_two((Data_Two) recycleviewData);
             datas.add(recycleviewData);
         }
 

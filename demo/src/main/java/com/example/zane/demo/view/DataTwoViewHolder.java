@@ -16,7 +16,7 @@ import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 /**
  * Created by Zane on 16/4/10.
  */
-public class DataTwoViewHolder extends BaseListViewHolderImpl<RecycleviewData>{
+public class DataTwoViewHolder extends BaseListViewHolderImpl<Data_Two>{
 
     private TextView mTextView;
 
@@ -27,10 +27,11 @@ public class DataTwoViewHolder extends BaseListViewHolderImpl<RecycleviewData>{
     @Override
     public void initView() {
         mTextView = get(R.id.item_text_show);
+        Log.i("DataTwoViewHolder", String.valueOf(mTextView));
     }
 
     @Override
-    public void setData(RecycleviewData data) {
-        mTextView.setText(data.getData_two().getDataTwo());
+    public void setData(Data_Two data) {
+        mTextView.setText(data.getDataTwo());
     }
 }

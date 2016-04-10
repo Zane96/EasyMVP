@@ -10,6 +10,7 @@ import com.example.zane.easymvp.base.IListModel;
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 
 import java.lang.reflect.Array;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,7 +22,7 @@ import java.util.List;
  * 16.4.10修改：所有的数据管理都放在BaseAdapter里面。
  * 由于这个适配器并不提供添加header和foot的功能，所以getItemCount()最好还是要开发者自己实现
  */
-public abstract class BaseListAdapterPresenter<M extends IListModel> extends RecyclerView.Adapter<BaseListViewHolderImpl>{
+public abstract class BaseListAdapterPresenter<M> extends RecyclerView.Adapter<BaseListViewHolderImpl>{
 
     protected Context mContext;
     //item数据的model集合
@@ -43,6 +44,7 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
     public BaseListAdapterPresenter(@NonNull Context mContext){
         this(mContext, new ArrayList<M>());
     }
+
 
     /**
      * 传入数组类型的数据
