@@ -12,6 +12,7 @@ import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -29,6 +30,11 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
     private int headNum = 0;
     //开发者添加的尾的数量
     private int footNum = 0;
+
+    //用来提供同步代码块的锁
+    private final Object mLock = new Object();
+
+//-------------------------------构造器-----------------------------------
 
     /**
      * 不传入数据
@@ -57,6 +63,8 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
         this.mDatas = mDatas;
     }
 
+
+//---------------------------对继承函数的重写--------------------------------
 
     /**
      * 将viewType返回,具体的实现由开发者去做。
@@ -106,5 +114,85 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
     public abstract int setHeadNum();
     public abstract int setFootNum();
 
+// ----------------------------对数据源的操作--------------------------------
+
+    /**
+     * 将数据添加到集合最末尾
+     * @param data
+     */
+    public void add(M data){
+        add(data, mDatas.size());
+    }
+
+    /**
+     * 将数据添加到指定位置
+     * @param data
+     * @param position
+     */
+    public void add(M data, int position){
+        if (data != null){
+            synchronized (mLock){
+                mDatas.add(position, data);
+            }
+        }
+    }
+
+    /**
+     * 将一个集合添加到数据最尾端
+     * @param collection
+     */
+    public void addAll(Collection<? extends M> collection){
+        addAll(collection, mDatas.size());
+    }
+
+    public void addAll(Collection<? extends M> collection, int position){
+        if (collection != null && collection.size() != 0 && position > 0){
+            synchronized (mLock){
+                mDatas.addAll(position, collection);
+            }
+        }
+    }
+
+    /**
+     * 删除集合最尾部数据
+     */
+    public void remove(){
+        synchronized (mLock){
+           remove(mDatas.size() - 1);
+        }
+    }
+
+    /**
+     * 删除指定位置的数据
+     * @param position
+     */
+    public void remove(int position){
+        if (position > 0 && position <= (mDatas.size() - 1)){
+            synchronized (mLock){
+                mDatas.remove(position);
+            }
+        }
+    }
+
+    /**
+     * 删除一个特定数据的元素
+     * @param data
+     */
+    public void remove(M data){
+        if (data != null){
+            synchronized (mLock){
+                mDatas.remove(data);
+            }
+        }
+    }
+
+    /**
+     * 清空数据
+     */
+    public void clear(){
+        synchronized (mLock){
+            mDatas.clear();
+        }
+    }
 
 }

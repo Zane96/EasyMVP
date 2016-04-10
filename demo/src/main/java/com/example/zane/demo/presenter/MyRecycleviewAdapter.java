@@ -19,19 +19,17 @@ import java.util.List;
  */
 public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewData>{
 
-    private List<RecycleviewData> datas;
     private static final int DATA_ONE = 1156;
     private static final int DATA_TWO = 2236;
 
     public MyRecycleviewAdapter(Context mContext, List<RecycleviewData> datas){
         super(mContext, datas);
-        this.datas = datas;
     }
 
     @Override
     public int getItemViewType(int position) {
 
-        if (datas.get(position).getData_one() != null){
+        if (mDatas.get(position).getData_one() != null){
             return DATA_ONE;
         }else {
             return DATA_TWO;
