@@ -10,15 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.zane.easymvp.base.IListModel;
+
 import butterknife.ButterKnife;
 
 /**
  * Created by Zane on 15/12/18.
  * 这个中间的base层用来做到viewholder与adapter的解耦。
  */
-public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerView.ViewHolder{
+public abstract class BaseListViewHolderImpl<M> extends RecyclerView.ViewHolder{
 
-    private  View view;
+    protected View view;
+    protected final SparseArray<View> mViews = new SparseArray<View>();
 
     public BaseListViewHolderImpl(View itemView) {
         super(itemView);
@@ -29,7 +32,7 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
     //生成viewholder的构造方法。
     public BaseListViewHolderImpl(ViewGroup parent, @LayoutRes int res){
         super(LayoutInflater.from(parent.getContext()).inflate(res, parent, false));
-        view = LayoutInflater.from(parent.getContext()).inflate(res, parent, false);
+        view = itemView;
         initView();
     }
 
@@ -41,5 +44,20 @@ public abstract class BaseListViewHolderImpl<M extends Object> extends RecyclerV
         return (T) view.findViewById(id);
     }
 
+    final public <T extends View> T bindView(int id) {
+        T view2 = (T) mViews.get(id);
+        if (view2 == null) {
+            view2 = $(id);
+            mViews.put(id, view2);
+        }
+        return view2;
+    }
 
+    final public <T extends View> T get(int id) {
+        return (T) bindView(id);
+    }
+
+    public Context getContext(){
+        return view.getContext();
+    }
 }

@@ -39,6 +39,7 @@ public abstract class BaseViewImpl implements IView{
     final public View getRootView() {
         return view;
     }
+
     @Override
     public abstract int getRootViewId();
 

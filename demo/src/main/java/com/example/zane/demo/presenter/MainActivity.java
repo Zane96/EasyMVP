@@ -1,25 +1,27 @@
 package com.example.zane.demo.presenter;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 
-import com.example.zane.demo.R;
-import com.example.zane.demo.model.data;
+import com.example.zane.demo.Bean.Data_One;
+import com.example.zane.demo.Bean.Data_Two;
+import com.example.zane.demo.Bean.RecycleviewData;
+import com.example.zane.demo.Constant;
 import com.example.zane.demo.view.MainListView;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-
 public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     public LinearLayoutManager linearLayoutManager;
     public MyRecycleviewAdapter adapter;
-    public List<data> datas = new ArrayList<>();
+    public List<RecycleviewData> datas = new ArrayList<>();
+
+    private static final String TAG = "MainActivity_demo";
 
     @Override
     public Class<MainListView> getRootViewClass() {
@@ -28,12 +30,24 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     @Override
     public void inCreat(Bundle bundle) {
-        for (int i = 0; i <= 10; i++){
-            datas.add(new data());
+
+        for (int i = 0; i < Constant.DataOne.length; i++){
+            RecycleviewData recycleviewData = new RecycleviewData();
+            recycleviewData.setData_one(new Data_One(Constant.DataOne[i]));
+            datas.add(recycleviewData);
+            Log.i(TAG, Constant.DataOne[i]);
         }
+
+        for (int j = 0; j < Constant.DataTwo.length; j++){
+            RecycleviewData recycleviewData = new RecycleviewData();
+            recycleviewData.setData_two(new Data_Two(Constant.DataTwo[j]));
+            datas.add(recycleviewData);
+        }
+
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
+
 
     }
 

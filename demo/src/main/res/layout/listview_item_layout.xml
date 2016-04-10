@@ -2,17 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="40dp"
-    >
+              android:layout_height="40dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:layout_marginLeft="20dp"
-        android:id="@+id/item_text"
-        android:text="ss"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:id="@+id/item_text_show"
+        android:textColor="#000"
+        />
 
     <View
         android:layout_width="match_parent"
