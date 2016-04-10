@@ -45,6 +45,18 @@ allprojects {
 ```
   public class MyRecycleviewAdapter extends BaseListAdapterPresenter<Bean>
 ```
+**Model**
+```
+  public class RecycleviewData implements IListModel
+```
+
+###BaseListAdapterPresenter和BaseListViewHolderImpl的介绍
+viewHolder与Adapter解耦的部分请看上述博客。
+**更新介绍**：
++ 数据全部在base类中进行管理，所有的数据操作都已经在BaseAdapterPresenter里面定义好了。开发者只需要在适配器里面调用继承过来的mDatas对象就可以操作数据了。具体可以看源码。
++ 一个适配器对应多个viewHolder去让一个RecycleView展示多个Model的数据。每一个开发者定义的Model需要去实现IListModel接口。
+  如果一个
+	
 
 ###版本更新介绍:
 + v.1.3.0:强制使activity拥有提供context到view中的函数。因为有时候view的使用必须用到activity类型的context。提供的过程由框架内部完成，开发者只需要get,set就行。比如启动activity，启动Toast都可以在view中实现，解决java类作为View的一个很麻烦的问题。
