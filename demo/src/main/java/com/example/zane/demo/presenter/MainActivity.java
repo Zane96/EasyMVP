@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
             RecycleviewData recycleviewData = new Data_One(Constant.DataOne[i]);
             recycleviewData.setData_one((Data_One) recycleviewData);
             datas.add(recycleviewData);
-            Log.i(TAG, Constant.DataOne[i]);
         }
 
         for (int j = 0; j < Constant.DataTwo.length; j++){
@@ -47,8 +46,6 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
-
-
     }
 
     @Override

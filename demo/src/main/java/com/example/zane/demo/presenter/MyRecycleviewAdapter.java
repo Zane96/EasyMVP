@@ -55,11 +55,7 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     public void onBindViewHolder(BaseListViewHolderImpl holder, int position) {
         Log.i("MyRecycleviewAdapter", position+" "+String.valueOf(holder)+" ");
         //holder.setData(getItem(position));
-        if (position < 5){
-            holder.setData(getItem(position));
-        } else {
-            holder.setData( getItem(position));
-        }
+        holder.setData(mDatas.get(position));
     }
 
     @Override
