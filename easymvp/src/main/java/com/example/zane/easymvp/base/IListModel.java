@@ -6,4 +6,12 @@ package com.example.zane.easymvp.base;
  */
 public interface IListModel {
 
+    //不同的model实现这个方法返回不同的viewtype
+
+    /**
+     * return viewtype
+     * @return
+     */
+    public int getModelViewType();
+
 }

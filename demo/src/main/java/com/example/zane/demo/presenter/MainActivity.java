@@ -17,9 +17,9 @@ import java.util.List;
 
 public class MainActivity extends BaseActivityPresenter<MainListView>{
 
-    public LinearLayoutManager linearLayoutManager;
-    public MyRecycleviewAdapter adapter;
-    public List<RecycleviewData> datas = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager;
+    private MyRecycleviewAdapter adapter;
+    private List<RecycleviewData> datas = new ArrayList<>();
 
     private static final String TAG = "MainActivity_demo";
 
@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     public void inCreat(Bundle bundle) {
 
         for (int i = 0; i < Constant.DataOne.length; i++){
+            //先向上转型，再向下转型为Data_One类型的对象。
             RecycleviewData recycleviewData = new Data_One(Constant.DataOne[i]);
             recycleviewData.setData_one((Data_One) recycleviewData);
             datas.add(recycleviewData);

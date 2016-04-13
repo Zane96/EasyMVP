@@ -21,9 +21,6 @@ import java.util.List;
  */
 public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewData>{
 
-    private static final int DATA_ONE = 1156;
-    private static final int DATA_TWO = 2236;
-
     public MyRecycleviewAdapter(Context mContext, List<RecycleviewData> datas){
         super(mContext, datas);
     }
@@ -32,37 +29,43 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     public int getItemViewType(int position) {
 
         if (mDatas.get(position).getData_one() != null){
-            return DATA_ONE;
+            return RecycleviewData.DATA_ONE;
         }else {
-            return DATA_TWO;
+            return RecycleviewData.DATA_TWO;
         }
 
     }
 
     @Override
     public BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType) {
+
         switch (viewType){
-            case DATA_ONE:
+
+            case RecycleviewData.DATA_ONE:
                 return new DataOneViewHolder(parent, R.layout.listview_item_layout);
-            case DATA_TWO:
+
+            case RecycleviewData.DATA_TWO:
                 return new DataTwoViewHolder(parent, R.layout.listview_item_layout);
+
             default:
                 throw new IllegalArgumentException("没有匹配的ViewHolder!");
+
         }
+
     }
 
     @Override
     public void onBindViewHolder(BaseListViewHolderImpl holder, int position) {
-        Log.i("MyRecycleviewAdapter", position+" "+String.valueOf(holder)+" ");
-        //holder.setData(getItem(position));
         holder.setData(mDatas.get(position));
     }
 
+    //没有头
     @Override
     public int setHeadNum() {
         return 0;
     }
 
+    //没有尾
     @Override
     public int setFootNum() {
         return 0;

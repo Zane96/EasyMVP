@@ -34,5 +34,4 @@ public class DataOneViewHolder extends BaseListViewHolderImpl<Data_One> {
         mTextView.setText(data.getDataOne());
     }
 
-
 }
