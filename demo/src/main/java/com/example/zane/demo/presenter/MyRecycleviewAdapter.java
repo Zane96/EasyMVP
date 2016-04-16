@@ -27,29 +27,22 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
 
     @Override
     public int getItemViewType(int position) {
-
-        if (mDatas.get(position).getData_one() != null){
+        if (mDatas.get(position).getModelViewType() == RecycleviewData.DATA_ONE){
             return RecycleviewData.DATA_ONE;
         }else {
             return RecycleviewData.DATA_TWO;
         }
-
     }
 
     @Override
     public BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType) {
-
         switch (viewType){
-
             case RecycleviewData.DATA_ONE:
                 return new DataOneViewHolder(parent, R.layout.listview_item_layout);
-
             case RecycleviewData.DATA_TWO:
                 return new DataTwoViewHolder(parent, R.layout.listview_item_layout);
-
             default:
                 throw new IllegalArgumentException("没有匹配的ViewHolder!");
-
         }
 
     }
