@@ -53,9 +53,8 @@ allprojects {
 ###BaseListAdapterPresenter和BaseListViewHolderImpl的介绍
 viewHolder与Adapter解耦的部分请看上述博客。
 **更新介绍**：
-+ 数据全部在base类中进行管理，所有的数据操作都已经在BaseAdapterPresenter里面定义好了。开发者只需要在适配器里面调用继承过来的mDatas对象就可以操作数据了。具体可以看源码。
-+ 一个适配器对应多个viewHolder去让一个RecycleView展示多个Model的数据。每一个开发者定义的Model需要去实现IListModel接口。
-  如果一个
++ 数据对象的集合全部在base类中进行管理，所有的数据操作都已经在BaseAdapterPresenter里面定义好了。开发者只需要在适配器里面调用继承过来的mDatas对象就可以操作数据了。具体可以看源码。
++ 解决特殊情况下一个recycleview需要展示不同数据源数据（多个model）的情况。例如一个recycleview的前5个item要展示Model A的数据，后5个item要展示Model B的数据。这样开发者需要写一个公共ModelC类，并且持有A,B的对象。并且这个C类实现框架IListModel接口，实现getViewType()方法。并且C类是适配器的类泛型。
 	
 
 ###版本更新介绍:
