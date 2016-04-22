@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zane.easymvp.base.IListModel;
@@ -31,11 +32,22 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
     private int headNum = 0;
     //开发者添加的尾的数量
     private int footNum = 0;
+    //item的点击监听接口
+    private OnRecycleViewItemClickListener onRecycleViewItemClickListener;
 
     //用来提供同步代码块的锁
     private final Object mLock = new Object();
 
 //-------------------------------构造器-----------------------------------
+
+    public interface OnRecycleViewItemClickListener{
+        void onClick(View view, int position);
+        void onLongClick(View view, int position);
+    }
+
+    public void setOnRecycleViewItemClickListener(OnRecycleViewItemClickListener listener){
+        onRecycleViewItemClickListener = listener;
+    }
 
     /**
      * 不传入数据
@@ -80,6 +92,35 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
 
     public abstract BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType);
 
+
+    /**
+     * 默认框架实现点击事件接口的回调
+     * @param holder
+     * @param position
+     */
+    @Override
+    public void onBindViewHolder(BaseListViewHolderImpl holder, final int position) {
+        OnBindViewHloder(holder, position);
+
+        //设置监听接口
+        if (onRecycleViewItemClickListener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onRecycleViewItemClickListener.onClick(v, position);
+                }
+            });
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    onRecycleViewItemClickListener.onLongClick(v, position);
+                    return true;
+                }
+            });
+        }
+    }
+
+    public abstract void OnBindViewHloder(BaseListViewHolderImpl holder, int position);
 
     /**
      * 将datas中的某个数据返回给viewholder

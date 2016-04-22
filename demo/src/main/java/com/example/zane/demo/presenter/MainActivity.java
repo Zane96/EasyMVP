@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.zane.demo.Bean.Data_One;
 import com.example.zane.demo.Bean.Data_Two;
@@ -11,6 +13,7 @@ import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.Constant;
 import com.example.zane.demo.view.MainListView;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
+import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +50,18 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
+        
+        adapter.setOnRecycleViewItemClickListener(new BaseListAdapterPresenter.OnRecycleViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "点击！", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "长按!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

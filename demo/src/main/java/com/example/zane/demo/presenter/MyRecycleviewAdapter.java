@@ -25,6 +25,7 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
         super(mContext, datas);
     }
 
+
     @Override
     public int getItemViewType(int position) {
         if (mDatas.get(position).getModelViewType() == RecycleviewData.DATA_ONE){
@@ -48,7 +49,7 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     }
 
     @Override
-    public void onBindViewHolder(BaseListViewHolderImpl holder, int position) {
+    public void OnBindViewHloder(BaseListViewHolderImpl holder, int position) {
         holder.setData(mDatas.get(position));
     }
 
