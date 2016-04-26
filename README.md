@@ -58,7 +58,7 @@ viewHolder与Adapter解耦的部分请看上述博客。将viewHolder于adapter�
 	
 
 ###版本更新介绍:
-+v1.3.1:主要修改在**BaseListAdapter**中：
++ v1.3.1:主要修改在**BaseListAdapter**中：
 	1. 开发者需要在adapter里面实现setHeadNum()和setFootNum()方法来告诉框架你添加的headhe foot的数量。
 	2. 主要的数据源均在框架里面进行管理，开发者直接调用框架中的对集合操作的方法去操作mDatas变量。开发者当然也可以自定义数据变量。
 + v.1.3.0:强制使activity拥有提供context到view中的函数。因为有时候view的使用必须用到activity类型的context。提供的过程由框架内部完成，开发者只需要get,set就行。比如启动activity，启动Toast都可以在view中实现，解决java类作为View的一个很麻烦的问题。
