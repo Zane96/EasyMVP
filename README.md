@@ -8,7 +8,7 @@
 + 以及框架的具体介绍文章:[《MVP开发框架的第一次尝试》](http://zane96.github.io/2016/01/28/MVP%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E4%B8%80%E6%AC%A1%E5%B0%9D%E8%AF%95%E2%80%94%E2%80%94EasyMVP/)
 
 ###重复依赖
-butterkinfe。 
+**butterknofe** 
 	
 ###添加依赖：
 gradle:
