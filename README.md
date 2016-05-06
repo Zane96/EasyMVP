@@ -55,7 +55,7 @@ viewHolder与Adapter解耦的部分请看上述博客。将viewHolder于adapter�
 **更新介绍**：
 + 数据对象的集合全部在base类中进行管理，所有的数据操作都已经在BaseAdapterPresenter里面定义好了。开发者只需要在适配器里面调用继承过来的mDatas对象就可以操作数据了。具体可以看源码。
 + 解决特殊情况下一个recycleview需要展示不同数据源数据（多个model）的情况。例如一个recycleview的前5个item要展示Model A的数据，后5个item要展示Model B的数据。这样开发者需要写一个公共ModelC类，并且持有A,B的对象。并且这个C类实现框架IListModel接口，实现getViewType()（根据父类里面的之类实例对象是否为空来返回相应的type）方法。因为C类是适配器的类泛型，所以在getItemViewType方法里面去调用C里面的getViewType方法。但是以后可能会把这项工作放到框架总去做，因为现在没有太多的考虑head和foot的问题。A,B类是要继承C类，并且在将C类的数据集合生成的时候，必须要用相应的子类对象作为父类引用的指向对象，不然在viewHolder里面父类强转子类对象会报错哦（java基础）。具体实现请看demo中的代码。
-	
++ 开发者不用再去adapter里面定义item的点击事件的接口回调，世界在代码里面**setOnRecycleViewItemClickListener()**就可以了。
 
 ###版本更新介绍:
 + v1.3.1:主要修改在**BaseListAdapter**中：
