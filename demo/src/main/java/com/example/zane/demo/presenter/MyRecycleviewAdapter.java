@@ -13,6 +13,7 @@ import com.example.zane.demo.view.DataTwoViewHolder;
 import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 
+import java.util.ArrayList;
 import java.util.IllegalFormatException;
 import java.util.List;
 
@@ -24,7 +25,6 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     public MyRecycleviewAdapter(Context mContext, List<RecycleviewData> datas){
         super(mContext, datas);
     }
-
 
     @Override
     public int getItemViewType(int position) {

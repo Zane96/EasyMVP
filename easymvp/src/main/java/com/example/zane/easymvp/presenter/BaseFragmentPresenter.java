@@ -1,9 +1,11 @@
 package com.example.zane.easymvp.presenter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,7 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
             e.printStackTrace();
         }
         v.creatView(inflater, container, savedInstanceState);
-        v.setActivityContext(getContext());
+        v.setActivityContext((Activity) getContext());
         return v.getRootView();
     }
 
@@ -60,6 +62,6 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
     }
 
     public abstract Class<T> getRootViewClass();
-    public abstract AppCompatActivity getContext();
+    public abstract FragmentActivity getContext();
 
 }

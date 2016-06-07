@@ -1,5 +1,6 @@
 package com.example.zane.demo.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,8 +26,7 @@ public class MainListView extends BaseViewImpl {
     }
 
     @Override
-    public void setActivityContext(AppCompatActivity activity) {
-
+    public void setActivityContext(Activity activity) {
     }
 
     public void initRecycleview(LinearLayoutManager manager, MyRecycleviewAdapter adapter) {

@@ -1,10 +1,9 @@
 package com.example.zane.demo.presenter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.example.zane.demo.R;
@@ -40,7 +39,7 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     }
 
     @Override
-    public AppCompatActivity getContext() {
+    public Activity getContext() {
         return this;
     }
 }

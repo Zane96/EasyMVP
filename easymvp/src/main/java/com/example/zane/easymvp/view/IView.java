@@ -1,5 +1,6 @@
 package com.example.zane.easymvp.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,5 +47,5 @@ public interface IView{
     /**
      * 在presenter里面返回自己的context给view层
      */
-    void setActivityContext(AppCompatActivity activity);
+    void setActivityContext(Activity activity);
 }

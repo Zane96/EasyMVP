@@ -51,42 +51,6 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
     public abstract Class<V> getRootViewClass();
     public abstract void inCreat(Bundle savedInstanceState);
     public abstract void inDestory();
-    public abstract AppCompatActivity getContext();
-    public void inPause(){}
-    public void inRestart(){}
-    public void inStop(){}
-    public void inResume(){}
-    public void inStart(){}
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        inStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        inResume();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        inStop();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        inRestart();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        inPause();
-    }
-
+    public abstract Activity getContext();
 
 }

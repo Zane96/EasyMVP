@@ -55,7 +55,7 @@ public abstract class BaseViewImpl implements IView{
     }
 
     @Override
-    public abstract void setActivityContext(AppCompatActivity activity);
+    public abstract void setActivityContext(Activity activity);
 
     final public <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);

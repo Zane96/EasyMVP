@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new MyRecycleviewAdapter(this, datas);
         v.initRecycleview(linearLayoutManager, adapter);
-        
+
         adapter.setOnRecycleViewItemClickListener(new BaseListAdapterPresenter.OnRecycleViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {

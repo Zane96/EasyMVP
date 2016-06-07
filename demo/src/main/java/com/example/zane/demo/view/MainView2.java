@@ -1,15 +1,13 @@
 package com.example.zane.demo.view;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.zane.demo.R;
-import com.example.zane.demo.presenter.MainActivity;
 import com.example.zane.easymvp.view.BaseViewImpl;
 
 import butterknife.Bind;
@@ -31,7 +29,7 @@ public class MainView2 extends BaseViewImpl {
     }
 
     @Override
-    public void setActivityContext(AppCompatActivity activity) {
+    public void setActivityContext(Activity activity) {
         context = activity;
     }
 
