@@ -188,7 +188,7 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
     }
 
     public void addAll(Collection<? extends M> collection, int position){
-        if (collection != null && collection.size() != 0 && position > 0){
+        if (collection != null && collection.size() != 0 && position >= 0){
             synchronized (mLock){
                 mDatas.addAll(position, collection);
             }
@@ -209,7 +209,7 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
      * @param position
      */
     public void remove(int position){
-        if (position > 0 && position <= (mDatas.size() - 1)){
+        if (position >= 0 && position <= (mDatas.size() - 1)){
             synchronized (mLock){
                 mDatas.remove(position);
             }
