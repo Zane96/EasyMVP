@@ -19,10 +19,12 @@ import butterknife.ButterKnife;
 public abstract class BaseActivityPresenter<V extends IView> extends AppCompatActivity{
 
     protected V v;
+    private static final String V_STATE = "vState";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("BaseActivityPresenter", "creat");
         try {
             v = getRootViewClass().newInstance();
         } catch (InstantiationException e) {
@@ -39,13 +41,13 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
 
         inCreat(savedInstanceState);
     }
-    //接触绑定
+    //解除绑定
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        inDestory();
         v.removeView();
         v = null;
-        inDestory();
     }
 
     public abstract Class<V> getRootViewClass();

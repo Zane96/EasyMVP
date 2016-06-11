@@ -1,6 +1,9 @@
 package com.example.zane.demo.presenter;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
@@ -15,15 +18,17 @@ import com.example.zane.demo.view.MainListView;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     private LinearLayoutManager linearLayoutManager;
     private MyRecycleviewAdapter adapter;
     private List<RecycleviewData> datas = new ArrayList<>();
-
+    private MyHandler handler;
     private static final String TAG = "MainActivity_demo";
 
     @Override
@@ -33,6 +38,12 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     @Override
     public void inCreat(Bundle bundle) {
+
+        v.showProgress();
+        handler = new MyHandler(this);
+        Message message = new Message();
+        message.what = 1;
+        handler.sendMessageDelayed(message, 4000);
 
         for (int i = 0; i < Constant.DataOne.length; i++){
             //先向上转型，再向下转型为Data_One类型的对象。
@@ -67,10 +78,29 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
 
     @Override
     public void inDestory() {
+        handler.removeMessages(1);
     }
 
     @Override
     public AppCompatActivity getContext() {
         return this;
+    }
+
+    private final class MyHandler extends Handler{
+        WeakReference<MainActivity> reference;
+        public MyHandler(MainActivity activity){
+            reference = new WeakReference<MainActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            if (reference.get() != null){
+                super.handleMessage(msg);
+                switch (msg.what){
+                    case 1:
+                        v.hideProgress();
+                }
+            }
+        }
     }
 }
