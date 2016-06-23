@@ -40,11 +40,11 @@ public abstract class BaseListViewHolderImpl<M> extends RecyclerView.ViewHolder{
 
     public abstract void setData(M data);
 
-    final protected <T extends View> T $(@IdRes int id) {
+    protected final <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 
-    final public <T extends View> T bindView(int id) {
+    public final <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);
         if (view2 == null) {
             view2 = $(id);
@@ -53,7 +53,7 @@ public abstract class BaseListViewHolderImpl<M> extends RecyclerView.ViewHolder{
         return view2;
     }
 
-    final public <T extends View> T get(int id) {
+    public final <T extends View> T get(int id) {
         return (T) bindView(id);
     }
 
