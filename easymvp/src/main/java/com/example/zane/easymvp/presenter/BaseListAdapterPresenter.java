@@ -3,15 +3,12 @@ package com.example.zane.easymvp.presenter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zane.easymvp.base.IListModel;
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 
-import java.lang.reflect.Array;
-import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

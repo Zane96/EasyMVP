@@ -1,16 +1,11 @@
 package com.example.zane.easymvp.presenter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.zane.easymvp.view.IView;
-
-import java.io.Serializable;
-
-import butterknife.ButterKnife;
 
 
 /**

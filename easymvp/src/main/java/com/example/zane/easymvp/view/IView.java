@@ -1,16 +1,10 @@
 package com.example.zane.easymvp.view;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.io.Serializable;
 
 /**
  * Created by Zane on 15/12/18.

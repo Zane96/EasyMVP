@@ -1,6 +1,5 @@
 package com.example.zane.easymvp.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
@@ -9,10 +8,6 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.zane.easymvp.base.IListModel;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by Zane on 15/12/18.

@@ -2,18 +2,14 @@ package com.example.zane.demo.view;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.zane.demo.App;
 import com.example.zane.demo.R;
 import com.example.zane.demo.presenter.MyRecycleviewAdapter;
 import com.example.zane.easymvp.view.BaseViewImpl;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Zane on 15/12/20.
