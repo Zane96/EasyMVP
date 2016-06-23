@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 public abstract class BaseListViewHolderImpl<M> extends RecyclerView.ViewHolder{
 
     protected View view;
-    protected final SparseArray<View> mViews = new SparseArray<View>();
+    protected final SparseArray<View> mViews = new SparseArray<>();
 
     public BaseListViewHolderImpl(View itemView) {
         super(itemView);
