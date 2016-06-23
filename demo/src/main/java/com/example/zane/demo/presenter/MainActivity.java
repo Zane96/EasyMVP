@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
     private final class MyHandler extends Handler{
         WeakReference<MainActivity> reference;
         public MyHandler(MainActivity activity){
-            reference = new WeakReference<MainActivity>(activity);
+            reference = new WeakReference<>(activity);
         }
 
         @Override

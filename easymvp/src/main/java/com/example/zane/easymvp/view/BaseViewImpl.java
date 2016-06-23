@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 public abstract class BaseViewImpl implements IView{
 
     protected View view;
-    protected final SparseArray<View> mViews = new SparseArray<View>();
+    protected final SparseArray<View> mViews = new SparseArray<>();
 
     @Override
     public final void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
