@@ -1,12 +1,10 @@
 package com.example.zane.demo.presenter;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,7 +19,6 @@ import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.WeakHashMap;
 
 public class MainActivity extends BaseActivityPresenter<MainListView>{
 
