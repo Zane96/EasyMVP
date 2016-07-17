@@ -1,4 +1,4 @@
-package com.example.zane.easymvp.view;
+package com.example.zane.easymvp.base;
 
 import android.app.Activity;
 import android.content.Context;

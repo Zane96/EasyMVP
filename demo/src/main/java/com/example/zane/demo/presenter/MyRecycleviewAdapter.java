@@ -1,12 +1,8 @@
 package com.example.zane.demo.presenter;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.ViewGroup;
 
-import com.example.zane.demo.Bean.Data_One;
-import com.example.zane.demo.Bean.Data_Two;
 import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.R;
 import com.example.zane.demo.view.DataOneViewHolder;
@@ -14,8 +10,6 @@ import com.example.zane.demo.view.DataTwoViewHolder;
 import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 
-import java.util.ArrayList;
-import java.util.IllegalFormatException;
 import java.util.List;
 
 /**

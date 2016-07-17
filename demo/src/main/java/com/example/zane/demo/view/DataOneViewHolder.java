@@ -1,14 +1,10 @@
 package com.example.zane.demo.view;
 
 import android.support.annotation.LayoutRes;
-import android.util.Log;
-import android.util.SparseArray;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.zane.demo.Bean.Data_One;
-import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.R;
 import com.example.zane.easymvp.view.BaseListViewHolderImpl;
 

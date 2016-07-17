@@ -1,16 +1,14 @@
 package com.example.zane.easymvp.view;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.Serializable;
+import com.example.zane.easymvp.base.IView;
 
 import butterknife.ButterKnife;
 
@@ -19,12 +17,11 @@ import butterknife.ButterKnife;
  * Created by Zane on 15/12/18.
  * 将view加载的过程写在抽象类，做到代码复用。
  */
-public abstract class BaseViewImpl implements IView{
+public abstract class BaseViewImpl implements IView {
 
     protected View view;
     protected final SparseArray<View> mViews = new SparseArray<>();
 
-    @Override
     public final void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
         int resourceId = getRootViewId();
 
@@ -35,29 +32,24 @@ public abstract class BaseViewImpl implements IView{
         view = inflater.inflate(resourceId, parent, false);
     }
 
-    @Override
     public final View getRootView() {
         return view;
     }
 
-    @Override
     public abstract int getRootViewId();
 
     //添加注解view方式
-    @Override
     public final void initView() {
         ButterKnife.bind(this, view);
     }
 
-    @Override
     public final void removeView() {
         ButterKnife.unbind(this);
     }
 
-    @Override
     public abstract void setActivityContext(Activity activity);
 
-    public final <T extends View> T bindView(int id) {
+    private final <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);
         if (view2 == null) {
             view2 = $(id);
@@ -70,7 +62,7 @@ public abstract class BaseViewImpl implements IView{
         return (T) bindView(id);
     }
 
-    protected final <T extends View> T $(@IdRes int id) {
+    private final <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 
