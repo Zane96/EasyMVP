@@ -22,10 +22,10 @@ import butterknife.ButterKnife;
 public abstract class BaseViewImpl implements IView{
 
     protected View view;
-    protected final SparseArray<View> mViews = new SparseArray<View>();
+    protected final SparseArray<View> mViews = new SparseArray<>();
 
     @Override
-    final public void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
+    public final void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
         int resourceId = getRootViewId();
 
         if (resourceId == 0){
@@ -36,7 +36,7 @@ public abstract class BaseViewImpl implements IView{
     }
 
     @Override
-    final public View getRootView() {
+    public final View getRootView() {
         return view;
     }
 
@@ -45,22 +45,19 @@ public abstract class BaseViewImpl implements IView{
 
     //添加注解view方式
     @Override
-    final public void initView() {
+    public final void initView() {
         ButterKnife.bind(this, view);
     }
 
     @Override
-    final public void removeView() {
+    public final void removeView() {
         ButterKnife.unbind(this);
     }
 
     @Override
     public abstract void setActivityContext(Activity activity);
 
-    @Override
-    public abstract void onPresenterDestory();
-
-    final public <T extends View> T bindView(int id) {
+    public final <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);
         if (view2 == null) {
             view2 = $(id);
@@ -69,16 +66,16 @@ public abstract class BaseViewImpl implements IView{
         return view2;
     }
 
-    final public <T extends View> T get(int id) {
+    public final <T extends View> T get(int id) {
         return (T) bindView(id);
     }
 
-    final protected <T extends View> T $(@IdRes int id) {
+    protected final <T extends View> T $(@IdRes int id) {
         return (T) view.findViewById(id);
     }
 
 
-    final public void setOnClickListener(View.OnClickListener listener, int... ids) {
+    public final void setOnClickListener(View.OnClickListener listener, int... ids) {
         if (ids == null) {
             return;
         }
@@ -86,5 +83,4 @@ public abstract class BaseViewImpl implements IView{
             get(id).setOnClickListener(listener);
         }
     }
-
 }
