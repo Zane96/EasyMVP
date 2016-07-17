@@ -6,6 +6,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.zane.demo.App;
 import com.example.zane.demo.R;
@@ -32,6 +33,11 @@ public class MainListView extends BaseViewImpl {
     @Override
     public void setActivityContext(Activity activity) {
         this.activity = activity;
+    }
+
+    @Override
+    public void onPresenterDestory() {
+        Toast.makeText(activity, "destory", Toast.LENGTH_SHORT).show();
     }
 
     public void initRecycleview(LinearLayoutManager manager, MyRecycleviewAdapter adapter) {

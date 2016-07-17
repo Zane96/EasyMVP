@@ -92,7 +92,6 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
 
     public abstract BaseListViewHolderImpl OnCreatViewHolder(ViewGroup parent, int viewType);
 
-
     /**
      * 默认框架实现点击事件接口的回调
      * @param holder

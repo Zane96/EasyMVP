@@ -52,4 +52,9 @@ public interface IView{
      * 在presenter里面返回自己的context给view层
      */
     void setActivityContext(Activity activity);
+
+    /**
+     * 在presenter销毁的时候调用,生命周期同步一下,有时候需要在view释放什么
+     */
+    void onPresenterDestory();
 }

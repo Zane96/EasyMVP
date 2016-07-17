@@ -47,6 +47,7 @@ public abstract class BaseActivityPresenter<V extends IView> extends AppCompatAc
         super.onDestroy();
         inDestory();
         v.removeView();
+        v.onPresenterDestory();
         v = null;
     }
 

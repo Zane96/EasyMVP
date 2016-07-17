@@ -45,9 +45,10 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
     public void onDestroy() {
         super.onDestroy();
         v.removeView();
+        v.onPresenterDestory();
         v = null;
     }
-    
+
     public abstract Class<T> getRootViewClass();
     public abstract FragmentActivity getContext();
 

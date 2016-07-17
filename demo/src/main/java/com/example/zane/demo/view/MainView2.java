@@ -33,6 +33,11 @@ public class MainView2 extends BaseViewImpl {
         context = activity;
     }
 
+    @Override
+    public void onPresenterDestory() {
+        Toast.makeText(context, "destory", Toast.LENGTH_SHORT).show();
+    }
+
     public void ClickButtonShowToast() {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
