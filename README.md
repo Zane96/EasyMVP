@@ -24,7 +24,7 @@ allprojects {
 **Add the dependency:**
 ```
 	  dependencies {
-	        compile 'com.github.Zane96:EasyMVP:v1.3.6'
+	        compile 'com.github.Zane96:EasyMVP:v1.3.7'
 	  }
 ```
 
@@ -58,6 +58,7 @@ viewHolder与Adapter解耦的部分请看上述博客。将viewHolder于adapter�
 + 开发者不用再去adapter里面定义item的点击事件的接口回调，世界在代码里面**setOnRecycleViewItemClickListener()**就可以了。
 
 ###版本更新介绍:
++ v1.3.7:修复了适配器中设置head,foot，itemcount出错的bug
 + v1.3.5:添加了view中的onPresenterDestory()方法，这个方法用于view与presenter的onDestory()方法同步。作用就是可以当presenter销毁的时候，在view中做相应的销毁操作。比如EventBus的unRegister，可以避免不必要的内存泄漏。
 + v1.3.1:主要修改在**BaseListAdapter**中：
 	1. 开发者需要在adapter里面实现setHeadNum()和setFootNum()方法来告诉框架你添加的headhe foot的数量。
