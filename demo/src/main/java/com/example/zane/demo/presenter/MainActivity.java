@@ -74,6 +74,8 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
             }
         });
 
+        Toast.makeText(this, adapter.getItemCount()+"", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

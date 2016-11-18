@@ -131,21 +131,7 @@ public abstract class BaseListAdapterPresenter<M extends IListModel> extends Rec
 
     @Override
     public int getItemCount() {
-        return mDatas.size() + headNum + footNum;
-    }
-
-    /**
-     * 根据开发者提供的数据去更改头的数量
-     */
-    private void setBaseHeadNum(){
-        headNum = setHeadNum();
-    }
-
-    /**
-     * 根据开发者提供的数据去更改尾的数量
-     */
-    private void setBaseFootNum(){
-        footNum = setFootNum();
+        return mDatas.size() + setHeadNum() + setFootNum();
     }
 
     //开发者去实现，告诉BaseAdapter添加了几个head或者foot

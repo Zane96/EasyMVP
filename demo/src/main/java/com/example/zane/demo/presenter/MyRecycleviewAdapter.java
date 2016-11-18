@@ -25,7 +25,7 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
     public int getItemViewType(int position) {
         if (mDatas.get(position).getModelViewType() == RecycleviewData.DATA_ONE){
             return RecycleviewData.DATA_ONE;
-        }else {
+        } else {
             return RecycleviewData.DATA_TWO;
         }
     }
@@ -45,7 +45,9 @@ public class MyRecycleviewAdapter extends BaseListAdapterPresenter<RecycleviewDa
 
     @Override
     public void OnBindViewHloder(BaseListViewHolderImpl holder, int position) {
+
         holder.setData(mDatas.get(position));
+
     }
 
     //没有头
