@@ -1,12 +1,10 @@
 package com.example.zane.demo.presenter;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,9 +19,8 @@ import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.WeakHashMap;
 
-public class MainActivity extends BaseActivityPresenter<MainListView>{
+public class MainActivity extends BaseActivityPresenter<MainListView> {
 
     private LinearLayoutManager linearLayoutManager;
     private MyRecycleviewAdapter adapter;
@@ -88,7 +85,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
         return this;
     }
 
-    private final class MyHandler extends Handler{
+    private static final class MyHandler extends Handler{
         WeakReference<MainActivity> reference;
         public MyHandler(MainActivity activity){
             reference = new WeakReference<>(activity);
@@ -100,7 +97,7 @@ public class MainActivity extends BaseActivityPresenter<MainListView>{
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 1:
-                        v.hideProgress();
+                        reference.get().v.hideProgress();
                 }
             }
         }
