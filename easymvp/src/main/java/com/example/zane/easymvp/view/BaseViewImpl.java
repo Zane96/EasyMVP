@@ -22,7 +22,7 @@ public abstract class BaseViewImpl implements IView {
     protected View view;
     protected final SparseArray<View> mViews = new SparseArray<>();
 
-    public final void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
+    public void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
         int resourceId = getRootViewId();
 
         if (resourceId == 0){
