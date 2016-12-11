@@ -66,7 +66,6 @@ public abstract class BaseViewImpl implements IView {
         return (T) view.findViewById(id);
     }
 
-
     public final void setOnClickListener(View.OnClickListener listener, int... ids) {
         if (ids == null) {
             return;

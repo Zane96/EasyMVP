@@ -5,14 +5,17 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.zane.demo.BaseActivity;
 import com.example.zane.demo.Bean.Data_One;
 import com.example.zane.demo.Bean.Data_Two;
 import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.Constant;
 import com.example.zane.demo.view.MainListView;
+import com.example.zane.easymvp.base.IView;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
 
@@ -20,7 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivityPresenter<MainListView> {
+public class MainActivity extends BaseActivity<MainListView> {
 
     private LinearLayoutManager linearLayoutManager;
     private MyRecycleviewAdapter adapter;
@@ -42,14 +45,14 @@ public class MainActivity extends BaseActivityPresenter<MainListView> {
         message.what = 1;
         handler.sendMessageDelayed(message, 4000);
 
-        for (int i = 0; i < Constant.DataOne.length; i++){
+        for (int i = 0; i < Constant.DataOne.length; i++) {
             //先向上转型，再向下转型为Data_One类型的对象。
             RecycleviewData recycleviewData = new Data_One(Constant.DataOne[i]);
             recycleviewData.setData_one((Data_One) recycleviewData);
             datas.add(recycleviewData);
         }
 
-        for (int j = 0; j < Constant.DataTwo.length; j++){
+        for (int j = 0; j < Constant.DataTwo.length; j++) {
             RecycleviewData recycleviewData = new Data_Two(Constant.DataTwo[j]);
             recycleviewData.setData_two((Data_Two) recycleviewData);
             datas.add(recycleviewData);
@@ -83,6 +86,11 @@ public class MainActivity extends BaseActivityPresenter<MainListView> {
     @Override
     public AppCompatActivity getContext() {
         return this;
+    }
+
+    @Override
+    public void log() {
+        Log.i("main2", "sssss");
     }
 
     private static final class MyHandler extends Handler{

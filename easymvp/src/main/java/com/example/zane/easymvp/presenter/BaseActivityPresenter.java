@@ -14,7 +14,6 @@ import com.example.zane.easymvp.base.IView;
 public abstract class BaseActivityPresenter<V extends IView> extends AppCompatActivity{
 
     protected V v;
-    private static final String V_STATE = "vState";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
