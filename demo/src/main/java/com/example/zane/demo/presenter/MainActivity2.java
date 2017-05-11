@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.zane.demo.R;
 import com.example.zane.demo.view.MainView2;
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 
 /**
@@ -39,7 +40,7 @@ public class MainActivity2 extends BaseActivityPresenter<MainView2>{
     }
 
     @Override
-    public Activity getContext() {
+    public IPersenter getPersenter() {
         return this;
     }
 }

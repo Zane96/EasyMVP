@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.base.IView;
 
 /**
  * Created by Zane on 15/12/18.
  */
-public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
+public abstract class BaseFragmentPresenter<T extends IView> extends Fragment implements IPersenter{
 
     protected T v;
 
@@ -29,7 +30,7 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
             e.printStackTrace();
         }
         v.creatView(inflater, container, savedInstanceState);
-        v.setActivityContext((Activity) getContext());
+        v.injectPresenter(getPersenter());
         return v.getRootView();
     }
 
@@ -48,6 +49,5 @@ public abstract class BaseFragmentPresenter<T extends IView> extends Fragment{
     }
 
     public abstract Class<T> getRootViewClass();
-    public abstract FragmentActivity getContext();
-
+    public abstract IPersenter getPersenter();
 }

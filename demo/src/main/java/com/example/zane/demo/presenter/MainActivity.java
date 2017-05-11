@@ -15,6 +15,7 @@ import com.example.zane.demo.Bean.Data_Two;
 import com.example.zane.demo.Bean.RecycleviewData;
 import com.example.zane.demo.Constant;
 import com.example.zane.demo.view.MainListView;
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.base.IView;
 import com.example.zane.easymvp.presenter.BaseActivityPresenter;
 import com.example.zane.easymvp.presenter.BaseListAdapterPresenter;
@@ -84,7 +85,7 @@ public class MainActivity extends BaseActivity<MainListView> {
     }
 
     @Override
-    public AppCompatActivity getContext() {
+    public IPersenter getPersenter() {
         return this;
     }
 

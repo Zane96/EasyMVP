@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.base.IView;
 
 import butterknife.ButterKnife;
+
 
 
 /**
@@ -21,6 +23,7 @@ public abstract class BaseViewImpl implements IView {
 
     protected View view;
     protected final SparseArray<View> mViews = new SparseArray<>();
+
 
     public void creatView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
         int resourceId = getRootViewId();
@@ -47,7 +50,7 @@ public abstract class BaseViewImpl implements IView {
         ButterKnife.unbind(this);
     }
 
-    public abstract void setActivityContext(Activity activity);
+    public abstract void injectPresenter(IPersenter persenter);
 
     private final <T extends View> T bindView(int id) {
         T view2 = (T) mViews.get(id);

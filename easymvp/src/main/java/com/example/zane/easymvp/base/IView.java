@@ -49,9 +49,10 @@ public interface IView{
     void removeView();
 
     /**
-     * 在presenter里面返回自己的context给view层
+     * 注入P
+     * @param persenter
      */
-    void setActivityContext(Activity activity);
+    void injectPresenter(IPersenter persenter);
 
     /**
      * 在presenter销毁的时候调用,生命周期同步一下,有时候需要在view释放什么

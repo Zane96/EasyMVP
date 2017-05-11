@@ -7,9 +7,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.zane.demo.R;
+
+import com.example.zane.demo.presenter.MainActivity2;
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.view.BaseViewImpl;
 
 import butterknife.Bind;
+
 
 /**
  * Created by Zane on 16/1/27.
@@ -28,8 +32,8 @@ public class MainView2 extends BaseViewImpl {
     }
 
     @Override
-    public void setActivityContext(Activity activity) {
-        context = activity;
+    public void injectPresenter(IPersenter persenter) {
+        context = (Context) persenter;
     }
 
     @Override

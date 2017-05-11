@@ -7,10 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.zane.demo.R;
+import com.example.zane.demo.presenter.MainActivity;
 import com.example.zane.demo.presenter.MyRecycleviewAdapter;
+import com.example.zane.easymvp.base.IPersenter;
 import com.example.zane.easymvp.view.BaseViewImpl;
 
 import butterknife.Bind;
+
 
 /**
  * Created by Zane on 15/12/20.
@@ -26,9 +29,15 @@ public class MainListView extends BaseViewImpl {
         return R.layout.activity_main;
     }
 
+//    @Override
+//    public void setActivityContext(Activity activity) {
+//        this.activity = activity;
+//    }
+
+
     @Override
-    public void setActivityContext(Activity activity) {
-        this.activity = activity;
+    public void injectPresenter(IPersenter persenter) {
+        activity = (MainActivity) persenter;
     }
 
     @Override
