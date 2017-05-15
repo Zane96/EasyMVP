@@ -1,16 +1,16 @@
-##EasyMVP
+# EasyMVP
 在安卓上运用的MVP模式开发框架。A framework for MVP pattern in android.
 
 与传统MVP开发模式相反，EasyMVP是将activity,fragment, adapter作为presenter的mvp开发框架。
 
-###了解更多
+## 了解更多
 + 可以看看这篇文章对这种模式的理解:[《MVP模式的一种新的尝试》](https://github.com/bboyfeiyu/android-tech-frontier/tree/master/androidweekly/%E4%B8%80%E7%A7%8D%E5%9C%A8android%E4%B8%AD%E5%AE%9E%E7%8E%B0MVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B0%E6%80%9D%E8%B7%AF)
 + 以及框架的具体介绍文章:[《MVP开发框架的第一次尝试》](http://zane96.github.io/2016/01/28/MVP%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E7%9A%84%E4%B8%80%E6%AC%A1%E5%B0%9D%E8%AF%95%E2%80%94%E2%80%94EasyMVP/)
 
-###重复依赖
-**butterknofe** 
+## 重复依赖
+**butterknife** 
 	
-###添加依赖：
+## 添加依赖：
 gradle:
 **Add it in your root build.gradle at the end of repositories:**
 ```
@@ -24,7 +24,7 @@ allprojects {
 **Add the dependency:**
 ```
 	  dependencies {
-	        compile 'com.github.Zane96:EasyMVP:v1.3.7'
+	        compile 'com.github.Zane96:EasyMVP:v1.3.9'
 	  }
 ```
 
@@ -50,14 +50,15 @@ allprojects {
   public class RecycleviewData implements IListModel
 ```
 
-###BaseListAdapterPresenter和BaseListViewHolderImpl的介绍
+## BaseListAdapterPresenter和BaseListViewHolderImpl的介绍
 viewHolder与Adapter解耦的部分请看上述博客。将viewHolder于adapter分离，viewholder去管理item的view，给adapter瘦身。
 **更新介绍**：
 + 数据对象的集合全部在base类中进行管理，所有的数据操作都已经在BaseAdapterPresenter里面定义好了。开发者只需要在适配器里面调用继承过来的mDatas对象就可以操作数据了。具体可以看源码。
 + 解决特殊情况下一个recycleview需要展示不同数据源数据（多个model）的情况。例如一个recycleview的前5个item要展示Model A的数据，后5个item要展示Model B的数据。这样开发者需要写一个公共ModelC类，并且持有A,B的对象。并且这个C类实现框架IListModel接口，实现getViewType()（根据父类里面的之类实例对象是否为空来返回相应的type）方法。因为C类是适配器的类泛型，所以在getItemViewType方法里面去调用C里面的getViewType方法。但是以后可能会把这项工作放到框架总去做，因为现在没有太多的考虑head和foot的问题。A,B类是要继承C类，并且在将C类的数据集合生成的时候，必须要用相应的子类对象作为父类引用的指向对象，不然在viewHolder里面父类强转子类对象会报错哦（java基础）。具体实现请看demo中的代码。
 + 开发者不用再去adapter里面定义item的点击事件的接口回调，世界在代码里面**setOnRecycleViewItemClickListener()**就可以了。
 
-###版本更新介绍:
+## 版本更新介绍:
++ v1.3.9:直接向V层注入IPresenter
 + v1.3.7:修复了适配器中设置head,foot，itemcount出错的bug
 + v1.3.5:添加了view中的onPresenterDestory()方法，这个方法用于view与presenter的onDestory()方法同步。作用就是可以当presenter销毁的时候，在view中做相应的销毁操作。比如EventBus的unRegister，可以避免不必要的内存泄漏。
 + v1.3.1:主要修改在**BaseListAdapter**中：
